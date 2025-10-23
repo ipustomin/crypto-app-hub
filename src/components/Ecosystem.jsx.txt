@@ -1,0 +1,110 @@
+import React from 'react'
+import { motion } from 'framer-motion'
+
+const Ecosystem = () => {
+  const ecosystemItems = [
+    {
+      icon: "👥",
+      title: "Community Hub",
+      subtitle: "Сила Сообщества",
+      description: "Наша отправная точка и сердце проекта. Платформа, которая объединяет пользователей и разработчиков для взаимной выгоды.",
+      features: [
+        "Для разработчиков: Помогаем «разогнать» приложения в App Store и Google Play",
+        "Для пользователей: Выполняйте задания и получайте XCAH токены"
+      ]
+    },
+    {
+      icon: "🎮",
+      title: "Game Lab",
+      subtitle: "Играй и Зарабатывай", 
+      description: "Наше собственное подразделение по разработке мобильных игр с интегрированной криптовалютой.",
+      features: [
+        "Создаем увлекательные игровые миры с крипто-механиками",
+        "Привлекаем новую аудиторию через игровой процесс"
+      ]
+    },
+    {
+      icon: "🛍️",
+      title: "App Hub",
+      subtitle: "Свой Маркетплейс",
+      description: "Наш собственный магазин приложений, свободный от бюрократии и предрассудков.",
+      features: [
+        "Прямое взаимодействие разработчиков с аудиторией",
+        "Никаких блокировок и несправедливых комиссий"
+      ]
+    },
+    {
+      icon: "📢",
+      title: "PR Hub",
+      subtitle: "Реклама, которая Работает",
+      description: "Специализированная рекламная сеть, созданная для крипто-проектов.",
+      features: [
+        "Точное таргетирование на нужную аудиторию",
+        "Оплата исключительно в токенах XCAH"
+      ]
+    }
+  ]
+
+  return (
+    <section id="ecosystem" className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">
+            Единая экосистема для роста и развития
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Наши продукты работают вместе, чтобы создать среду, выгодную для всех: разработчиков, пользователей и инвесторов.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {ecosystemItems.map((item, index) => (
+            <motion.div
+              key={item.title}
+              className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-xl border border-gray-200 hover:border-yellow-500 transition-all duration-300 hover:transform hover:-translate-y-2"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <div className="text-4xl mb-4">{item.icon}</div>
+              <h3 className="text-2xl font-bold mb-2 text-black">{item.title}</h3>
+              <p className="text-yellow-600 font-semibold mb-4">{item.subtitle}</p>
+              <p className="text-gray-700 mb-6 leading-relaxed">{item.description}</p>
+              
+              <ul className="space-y-3">
+                {item.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-start text-sm text-gray-600">
+                    <span className="text-yellow-500 mr-2 mt-1">•</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Дополнительная информация */}
+        <motion.div 
+          className="mt-16 bg-yellow-50 rounded-2xl p-8 border border-yellow-200"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <div className="text-center">
+            <h4 className="text-2xl font-bold mb-4 text-yellow-800">Ключевая особенность</h4>
+            <p className="text-yellow-700 text-lg">
+              Все услуги в PR Hub оплачиваются исключительно в токенах XCAH, что создает постоянный спрос на монету и поддерживает ее ценность.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+export default Ecosystem

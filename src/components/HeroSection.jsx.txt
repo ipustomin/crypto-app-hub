@@ -1,0 +1,90 @@
+import React from 'react'
+import { motion } from 'framer-motion'
+
+const HeroSection = () => {
+  return (
+    <section id="hero" className="pt-32 pb-20 gradient-bg text-white min-h-screen flex items-center">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Ваш проводник в мир{' '}
+              <span className="text-yellow-500">мобильных крипто-приложений</span>
+            </motion.h1>
+            
+            <motion.p 
+              className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Мы разрушаем барьеры между разработчиками и пользователями, делая криптовалютные технологии доступными на каждом смартфоне.
+            </motion.p>
+
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <button className="yellow-gradient text-black px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-200 yellow-glow text-lg">
+                🚀 Участвовать в аирдропе
+              </button>
+              <button className="border-2 border-yellow-500 text-yellow-500 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-yellow-500 hover:text-black transition-all duration-200">
+                📖 Подробнее
+              </button>
+            </motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="bg-gray-900/50 rounded-3xl p-8 text-left backdrop-blur-sm border border-gray-700"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-yellow-500">Проблема, которую мы решаем</h3>
+                <div className="space-y-4 text-gray-300">
+                  <p className="flex items-start">
+                    <span className="text-yellow-500 mr-3">•</span>
+                    Миллионы людей пользуются приложениями, но крипто-проекты остаются недоступными
+                  </p>
+                  <p className="flex items-start">
+                    <span className="text-yellow-500 mr-3">•</span>
+                    App Store и Google Play создают препятствия для разработчиков
+                  </p>
+                  <p className="flex items-start">
+                    <span className="text-yellow-500 mr-3">•</span>
+                    Стоимость привлечения пользователей достигает $50 за установку
+                  </p>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <div className="bg-yellow-500/10 rounded-2xl p-6 border border-yellow-500/20">
+                  <div className="text-4xl font-bold text-yellow-500 mb-2">Решение</div>
+                  <p className="text-yellow-500 font-semibold text-lg">
+                    Crypto App Hub — экосистема, которая объединяет разработчиков и пользователей
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default HeroSection

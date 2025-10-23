@@ -1,0 +1,82 @@
+import React, { useState } from 'react'
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const menuItems = [
+    { name: 'Crypto App Hub', href: '#hero' },
+    { name: 'Экосистема', href: '#ecosystem' },
+    { name: 'Монета XCAH', href: '#tokenomics' },
+    { name: 'Дорожная карта', href: '#roadmap' },
+    { name: 'Команда', href: '#team' }
+  ]
+
+  return (
+    <header className="fixed top-0 left-0 right-0 bg-black/95 backdrop-blur-sm z-50 border-b border-yellow-500">
+      <nav className="container mx-auto px-4 py-4">
+        <div className="flex justify-between items-center">
+          {/* Логотип */}
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-yellow-500 rounded-lg flex items-center justify-center">
+              <span className="text-black font-bold text-lg">CAH</span>
+            </div>
+            <span className="text-white font-bold text-xl">Crypto App Hub</span>
+          </div>
+
+          {/* Десктопное меню */}
+          <div className="hidden md:flex space-x-8">
+            {menuItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-gray-300 hover:text-yellow-500 transition-colors duration-200 font-medium py-2"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Кнопка участия */}
+          <div className="hidden md:block">
+            <button className="yellow-gradient text-black px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200 yellow-glow">
+              Участвовать в аирдропе
+            </button>
+          </div>
+
+          {/* Мобильное меню */}
+          <button 
+            className="md:hidden text-white p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Мобильное меню выпадающее */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 border-t border-gray-700 pt-4">
+            <div className="flex flex-col space-y-4">
+              {menuItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-300 hover:text-yellow-500 transition-colors duration-200 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <button className="yellow-gradient text-black px-6 py-3 rounded-lg font-semibold w-full mt-4">
+                Участвовать в аирдропе
+              </button>
+            </div>
+          </div>
+        )}
+      </nav>
+    </header>
+  )
+}
+
+export default Header
